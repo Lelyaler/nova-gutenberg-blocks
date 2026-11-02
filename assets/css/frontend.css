@@ -1,0 +1,659 @@
+/**
+ * Nova Blocks - Frontend Styles
+ * Modern, responsive, zero-dependency layout
+ */
+
+:root {
+	--nova-bg: #0f141c;
+	--nova-card-bg: #161d27;
+	--nova-border: rgba(255, 255, 255, 0.08);
+	--nova-accent: #fdca40;
+	--nova-accent-hover: #e5b32f;
+	--nova-accent-rgb: 253, 202, 64;
+	--nova-text-main: #f3f4f6;
+	--nova-text-muted: #9ca3af;
+	--nova-profit: #10b981;
+	--nova-radius: 12px;
+	--nova-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   1. Yield Calculator Block
+   ========================================================================== */
+.nova-calc-block {
+	background: var(--nova-bg);
+	border: 1px solid var(--nova-border);
+	border-radius: var(--nova-radius);
+	padding: clamp(1.5rem, 3vw, 2.5rem);
+	color: var(--nova-text-main);
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+	margin: 2rem 0;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+.nova-calc__header {
+	margin-bottom: 2rem;
+	text-align: left;
+}
+
+.nova-calc__title {
+	font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+	font-weight: 700;
+	color: #fff;
+	margin: 0 0 0.5rem 0;
+	letter-spacing: -0.02em;
+}
+
+.nova-calc__subtitle {
+	font-size: 0.95rem;
+	color: var(--nova-text-muted);
+	margin: 0;
+	line-height: 1.5;
+}
+
+.nova-calc__body {
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: 2rem;
+	align-items: stretch;
+}
+
+@media (max-width: 860px) {
+	.nova-calc__body {
+		grid-template-columns: 1fr;
+	}
+}
+
+.nova-calc__controls {
+	display: flex;
+	flex-direction: column;
+	gap: 1.75rem;
+	background: var(--nova-card-bg);
+	border: 1px solid var(--nova-border);
+	border-radius: var(--nova-radius);
+	padding: 1.75rem;
+}
+
+.nova-calc__field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+}
+
+.nova-calc__field-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nova-calc__label {
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--nova-text-muted);
+}
+
+.nova-calc__amount-display {
+	font-size: 1.5rem;
+	font-weight: 800;
+	color: var(--nova-accent);
+	font-feature-settings: "tnum";
+}
+
+.nova-calc__term-display {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: #fff;
+}
+
+.nova-calc__slider-wrap {
+	width: 100%;
+}
+
+.nova-calc__slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 8px;
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.12);
+	outline: none;
+	cursor: pointer;
+	transition: background var(--nova-transition);
+}
+
+.nova-calc__slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: var(--nova-accent);
+	cursor: grab;
+	box-shadow: 0 0 12px rgba(var(--nova-accent-rgb), 0.6);
+	transition: transform var(--nova-transition);
+}
+
+.nova-calc__slider::-webkit-slider-thumb:hover {
+	transform: scale(1.18);
+}
+
+.nova-calc__slider::-moz-range-thumb {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: var(--nova-accent);
+	border: none;
+	cursor: grab;
+	box-shadow: 0 0 12px rgba(var(--nova-accent-rgb), 0.6);
+}
+
+.nova-calc__presets {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.nova-calc__chip {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--nova-border);
+	color: var(--nova-text-muted);
+	border-radius: 6px;
+	padding: 0.4rem 0.8rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all var(--nova-transition);
+}
+
+.nova-calc__chip:hover,
+.nova-calc__chip.is-active {
+	background: rgba(var(--nova-accent-rgb), 0.15);
+	border-color: var(--nova-accent);
+	color: #fff;
+}
+
+.nova-calc__term-buttons {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.5rem;
+}
+
+.nova-calc__term-btn {
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid var(--nova-border);
+	color: var(--nova-text-muted);
+	border-radius: 8px;
+	padding: 0.65rem;
+	font-size: 0.9rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: all var(--nova-transition);
+}
+
+.nova-calc__term-btn:hover {
+	border-color: rgba(255, 255, 255, 0.2);
+	color: #fff;
+}
+
+.nova-calc__term-btn.is-active {
+	background: var(--nova-accent);
+	color: #000;
+	border-color: var(--nova-accent);
+	box-shadow: 0 4px 14px rgba(var(--nova-accent-rgb), 0.35);
+}
+
+/* Results Card */
+.nova-calc__results-card {
+	background: linear-gradient(145deg, #182230 0%, #111823 100%);
+	border: 1px solid rgba(var(--nova-accent-rgb), 0.3);
+	border-radius: var(--nova-radius);
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	overflow: hidden;
+}
+
+.nova-calc__results-card::before {
+	content: "";
+	position: absolute;
+	top: -60px;
+	right: -60px;
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(var(--nova-accent-rgb), 0.25) 0%, transparent 70%);
+	pointer-events: none;
+}
+
+.nova-calc__stat-primary {
+	margin-bottom: 1.5rem;
+}
+
+.nova-calc__stat-label {
+	font-size: 0.85rem;
+	color: var(--nova-text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	display: block;
+	margin-bottom: 0.35rem;
+}
+
+.nova-calc__stat-value {
+	font-size: clamp(2rem, 3.5vw, 2.75rem);
+	font-weight: 900;
+	color: #fff;
+	font-feature-settings: "tnum";
+	line-height: 1.1;
+}
+
+.nova-calc__breakdown {
+	border-top: 1px solid var(--nova-border);
+	padding-top: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+	margin-bottom: 1.5rem;
+}
+
+.nova-calc__stat-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.95rem;
+}
+
+.nova-calc__stat-item-label {
+	color: var(--nova-text-muted);
+}
+
+.nova-calc__stat-item-val {
+	font-weight: 700;
+	color: #fff;
+	font-feature-settings: "tnum";
+}
+
+.nova-calc__stat-item-val--profit {
+	color: var(--nova-profit);
+}
+
+.nova-calc__stat-item-val--badge {
+	background: rgba(var(--nova-accent-rgb), 0.15);
+	color: var(--nova-accent);
+	padding: 0.15rem 0.5rem;
+	border-radius: 4px;
+	font-size: 0.85rem;
+}
+
+.nova-calc__growth-bar {
+	width: 100%;
+	height: 6px;
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 3px;
+	overflow: hidden;
+	margin-top: 0.5rem;
+}
+
+.nova-calc__growth-progress {
+	height: 100%;
+	background: linear-gradient(90deg, var(--nova-accent), var(--nova-profit));
+	border-radius: 3px;
+	transition: width 0.4s ease-out;
+}
+
+.nova-calc__cta-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 100%;
+	padding: 0.95rem 1.5rem;
+	background: var(--nova-accent);
+	color: #000;
+	font-weight: 700;
+	font-size: 0.95rem;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: all var(--nova-transition);
+	box-shadow: 0 4px 16px rgba(var(--nova-accent-rgb), 0.35);
+}
+
+.nova-calc__cta-btn:hover {
+	background: var(--nova-accent-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(var(--nova-accent-rgb), 0.45);
+	color: #000;
+}
+
+
+/* ==========================================================================
+   2. Pricing & Tier Matrix Block
+   ========================================================================== */
+.nova-pricing-block {
+	background: var(--nova-bg);
+	border: 1px solid var(--nova-border);
+	border-radius: var(--nova-radius);
+	padding: clamp(1.5rem, 3vw, 3rem);
+	color: var(--nova-text-main);
+	margin: 2rem 0;
+	box-sizing: border-box;
+}
+
+.nova-pricing__header {
+	text-align: center;
+	max-width: 650px;
+	margin: 0 auto 2.5rem;
+}
+
+.nova-pricing__title {
+	font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+	font-weight: 800;
+	color: #fff;
+	margin: 0 0 0.5rem 0;
+	letter-spacing: -0.02em;
+}
+
+.nova-pricing__subtitle {
+	font-size: 1rem;
+	color: var(--nova-text-muted);
+	margin: 0 0 1.5rem 0;
+	line-height: 1.6;
+}
+
+.nova-pricing__billing-toggle {
+	display: inline-flex;
+	background: rgba(255, 255, 255, 0.05);
+	padding: 0.3rem;
+	border-radius: 50px;
+	border: 1px solid var(--nova-border);
+}
+
+.nova-pricing__billing-btn {
+	background: transparent;
+	border: none;
+	color: var(--nova-text-muted);
+	padding: 0.55rem 1.25rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all var(--nova-transition);
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.nova-pricing__billing-btn.is-active {
+	background: var(--nova-accent);
+	color: #000;
+	box-shadow: 0 2px 10px rgba(var(--nova-accent-rgb), 0.35);
+}
+
+.nova-pricing__discount-tag {
+	background: var(--nova-profit);
+	color: #fff;
+	font-size: 0.7rem;
+	font-weight: 800;
+	padding: 0.15rem 0.4rem;
+	border-radius: 4px;
+}
+
+.nova-pricing__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+	align-items: stretch;
+}
+
+@media (max-width: 900px) {
+	.nova-pricing__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.nova-pricing__card {
+	background: var(--nova-card-bg);
+	border: 1px solid var(--nova-border);
+	border-radius: var(--nova-radius);
+	padding: 2rem 1.75rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transition: all var(--nova-transition);
+}
+
+.nova-pricing__card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nova-pricing__card--featured {
+	background: linear-gradient(160deg, #1a2332 0%, #121822 100%);
+	border-color: var(--nova-accent);
+	box-shadow: 0 12px 32px rgba(var(--nova-accent-rgb), 0.2);
+}
+
+.nova-pricing__card-badge {
+	position: absolute;
+	top: -12px;
+	right: 1.5rem;
+	background: var(--nova-accent);
+	color: #000;
+	font-size: 0.75rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	padding: 0.25rem 0.75rem;
+	border-radius: 50px;
+	letter-spacing: 0.05em;
+}
+
+.nova-pricing__card-head {
+	margin-bottom: 1.5rem;
+}
+
+.nova-pricing__card-name {
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: #fff;
+	margin: 0 0 0.35rem;
+}
+
+.nova-pricing__card-tagline {
+	font-size: 0.85rem;
+	color: var(--nova-text-muted);
+	margin: 0;
+	line-height: 1.4;
+}
+
+.nova-pricing__card-price {
+	display: flex;
+	align-items: baseline;
+	gap: 0.2rem;
+	margin-bottom: 1.75rem;
+}
+
+.nova-pricing__currency {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--nova-accent);
+}
+
+.nova-pricing__amount {
+	font-size: 2.75rem;
+	font-weight: 900;
+	color: #fff;
+	line-height: 1;
+}
+
+.nova-pricing__period {
+	font-size: 0.9rem;
+	color: var(--nova-text-muted);
+	margin-left: 0.25rem;
+}
+
+.nova-pricing__features-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+	flex-grow: 1;
+}
+
+.nova-pricing__feature-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+	font-size: 0.9rem;
+	color: #e2e8f0;
+	line-height: 1.4;
+}
+
+.nova-pricing__check-icon {
+	color: var(--nova-profit);
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.nova-pricing__cta-box {
+	margin-top: auto;
+}
+
+.nova-pricing__btn {
+	display: block;
+	width: 100%;
+	text-align: center;
+	padding: 0.85rem 1.25rem;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 0.9rem;
+	text-decoration: none;
+	transition: all var(--nova-transition);
+	box-sizing: border-box;
+}
+
+.nova-pricing__btn--primary {
+	background: var(--nova-accent);
+	color: #000;
+	box-shadow: 0 4px 14px rgba(var(--nova-accent-rgb), 0.35);
+}
+
+.nova-pricing__btn--primary:hover {
+	background: var(--nova-accent-hover);
+	color: #000;
+	transform: translateY(-2px);
+}
+
+.nova-pricing__btn--secondary {
+	background: rgba(255, 255, 255, 0.05);
+	color: #fff;
+	border: 1px solid var(--nova-border);
+}
+
+.nova-pricing__btn--secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ==========================================================================
+   3. FAQ Accordion Block
+   ========================================================================== */
+.nova-faq-block {
+	background: var(--nova-bg);
+	border: 1px solid var(--nova-border);
+	border-radius: var(--nova-radius);
+	padding: clamp(1.5rem, 3vw, 2.5rem);
+	color: var(--nova-text-main);
+	margin: 2rem 0;
+	box-sizing: border-box;
+}
+
+.nova-faq__header {
+	margin-bottom: 2rem;
+	text-align: left;
+}
+
+.nova-faq__title {
+	font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+	font-weight: 800;
+	color: #fff;
+	margin: 0 0 0.5rem;
+}
+
+.nova-faq__subtitle {
+	font-size: 0.95rem;
+	color: var(--nova-text-muted);
+	margin: 0;
+	line-height: 1.5;
+}
+
+.nova-faq__accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.nova-faq__item {
+	background: var(--nova-card-bg);
+	border: 1px solid var(--nova-border);
+	border-radius: 8px;
+	overflow: hidden;
+	transition: border-color var(--nova-transition);
+}
+
+.nova-faq__item.is-open {
+	border-color: rgba(var(--nova-accent-rgb), 0.4);
+}
+
+.nova-faq__question-btn {
+	width: 100%;
+	padding: 1.25rem 1.5rem;
+	background: transparent;
+	border: none;
+	color: #fff;
+	font-size: 1.05rem;
+	font-weight: 700;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	cursor: pointer;
+	transition: background var(--nova-transition);
+}
+
+.nova-faq__question-btn:hover {
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.nova-faq__arrow-icon {
+	color: var(--nova-text-muted);
+	transition: transform var(--nova-transition);
+	flex-shrink: 0;
+}
+
+.nova-faq__item.is-open .nova-faq__arrow-icon {
+	transform: rotate(180deg);
+	color: var(--nova-accent);
+}
+
+.nova-faq__answer-panel {
+	border-top: 1px solid transparent;
+	transition: all var(--nova-transition);
+}
+
+.nova-faq__item.is-open .nova-faq__answer-panel {
+	border-top-color: var(--nova-border);
+}
+
+.nova-faq__answer-content {
+	padding: 1.25rem 1.5rem 1.5rem;
+	color: var(--nova-text-muted);
+	font-size: 0.95rem;
+	line-height: 1.65;
+}

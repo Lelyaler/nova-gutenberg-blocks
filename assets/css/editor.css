@@ -1,0 +1,50 @@
+/**
+ * Nova Blocks - Gutenberg Editor Styles
+ */
+
+.wp-block[data-type^="nova-blocks/"] {
+	box-sizing: border-box;
+}
+
+.nova-editor-badge {
+	display: inline-block;
+	background: #fdca40;
+	color: #000;
+	font-weight: 700;
+	font-size: 0.7rem;
+	padding: 0.15rem 0.5rem;
+	border-radius: 4px;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+}
+
+.nova-editor-preview-notice {
+	background: rgba(253, 202, 64, 0.1);
+	border-left: 3px solid #fdca40;
+	padding: 0.75rem 1rem;
+	font-size: 0.85rem;
+	color: #e5e7eb;
+	margin-bottom: 1rem;
+	border-radius: 0 4px 4px 0;
+}
+
+.nova-editor-repeater-item {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 6px;
+	padding: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+
+.nova-editor-repeater-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.nova-editor-repeater-title {
+	font-weight: 600;
+	font-size: 0.85rem;
+	color: #9ca3af;
+}

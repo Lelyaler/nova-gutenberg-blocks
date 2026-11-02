@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "nova-blocks/faq-accordion",
+  "version": "1.0.0",
+  "title": "SEO FAQ Accordion & Schema",
+  "category": "nova-blocks",
+  "icon": "editor-help",
+  "description": "Accessible accordion with automatic Schema.org FAQPage JSON-LD rich snippet generation.",
+  "keywords": [ "faq", "accordion", "schema", "seo", "json-ld" ],
+  "textdomain": "nova-blocks",
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Frequently Asked Questions"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Everything you need to understand regarding yield calculations, settlements, and security protocols."
+    },
+    "generateSchema": {
+      "type": "boolean",
+      "default": true
+    },
+    "allowMultiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        {
+          "question": "How is the compounding yield calculated and distributed?",
+          "answer": "Yield is computed continuously based on dynamic liquidity pools and automated compounding frequency (daily or monthly). Returns are settled directly into your linked wallet address with sub-second finality."
+        },
+        {
+          "question": "Are deposits protected by cold-storage and insurance protocols?",
+          "answer": "Yes. 98.5% of reserve assets are held in air-gapped institutional multi-signature cold vaults protected by institutional underwriting and automated threshold verification."
+        },
+        {
+          "question": "Can funds be withdrawn prior to the full investment duration?",
+          "answer": "Flexible tiers allow immediate withdrawals with zero lockup penalty. Fixed-term yield tiers feature a partial early release mechanism with pro-rated yield recalculation."
+        },
+        {
+          "question": "Does this block output valid Google FAQPage Schema.org markup?",
+          "answer": "Yes! The block automatically builds and enqueues Google-compliant Schema.org FAQPage JSON-LD in the document footer, maximizing SEO visibility and eligibility for Google Rich Snippets in search results."
+        }
+      ]
+    }
+  },
+  "editorScript": "nova-blocks-editor",
+  "editorStyle": "nova-blocks-editor-style",
+  "script": "nova-blocks-frontend",
+  "style": "nova-blocks-frontend-style",
+  "render": "file:./render.php"
+}

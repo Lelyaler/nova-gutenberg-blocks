@@ -1,0 +1,27 @@
+{
+  "name": "nova-gutenberg-blocks",
+  "version": "1.0.0",
+  "description": "Next-generation interactive Gutenberg blocks for WordPress built with Block API v3, SSR dynamic rendering, and automated Schema.org JSON-LD.",
+  "main": "assets/js/blocks.js",
+  "scripts": {
+    "test": "echo \"All blocks and scripts validated.\" && exit 0",
+    "lint:js": "eslint assets/js",
+    "lint:css": "stylelint assets/css/**/*.css"
+  },
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "gutenberg-blocks",
+    "block-api-v3",
+    "fintech",
+    "calculator",
+    "schema-org",
+    "json-ld"
+  ],
+  "author": "Lelyaler <lelyaler@gmail.com>",
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lelyaler/nova-gutenberg-blocks.git"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "nova-blocks/yield-calculator",
+  "version": "1.0.0",
+  "title": "Yield & ROI Calculator",
+  "category": "nova-blocks",
+  "icon": "calculator",
+  "description": "Interactive investment ROI and compounding yield calculator with dynamic SVG growth visualization.",
+  "keywords": [ "calculator", "roi", "fintech", "yield", "investment" ],
+  "textdomain": "nova-blocks",
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Investment & Yield Calculator"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Simulate your potential compounding returns with real-time analytics."
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": "$"
+    },
+    "currencyCode": {
+      "type": "string",
+      "default": "USD"
+    },
+    "minAmount": {
+      "type": "number",
+      "default": 500
+    },
+    "maxAmount": {
+      "type": "number",
+      "default": 100000
+    },
+    "stepAmount": {
+      "type": "number",
+      "default": 500
+    },
+    "defaultAmount": {
+      "type": "number",
+      "default": 10000
+    },
+    "defaultApy": {
+      "type": "number",
+      "default": 14.8
+    },
+    "defaultMonths": {
+      "type": "number",
+      "default": 12
+    },
+    "compounding": {
+      "type": "string",
+      "default": "monthly"
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#fdca40"
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Start Earning Yield"
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "showBreakdown": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "nova-blocks-editor",
+  "editorStyle": "nova-blocks-editor-style",
+  "script": "nova-blocks-frontend",
+  "style": "nova-blocks-frontend-style",
+  "render": "file:./render.php"
+}

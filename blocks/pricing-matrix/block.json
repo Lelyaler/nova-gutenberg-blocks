@@ -1,0 +1,98 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "nova-blocks/pricing-matrix",
+  "version": "1.0.0",
+  "title": "Pricing & Tier Matrix",
+  "category": "nova-blocks",
+  "icon": "money-alt",
+  "description": "Multi-tier pricing comparison table with monthly/annual discount switch and featured highlight badges.",
+  "keywords": [ "pricing", "table", "tiers", "fintech", "plans" ],
+  "textdomain": "nova-blocks",
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Transparent, Predictable Pricing"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Choose the optimal plan engineered to scale alongside your financial volume."
+    },
+    "annualDiscount": {
+      "type": "number",
+      "default": 20
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": "$"
+    },
+    "plans": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Starter Tier",
+          "tagline": "Ideal for individual crypto & fiat tracking",
+          "priceMonthly": 0,
+          "priceAnnual": 0,
+          "isPopular": false,
+          "badge": "",
+          "features": [
+            "Up to $10,000 monthly volume",
+            "Multi-currency instant wallet",
+            "Standard REST API access",
+            "Community email support"
+          ],
+          "ctaText": "Get Started Free",
+          "ctaUrl": "#"
+        },
+        {
+          "name": "Pro Yield",
+          "tagline": "Automated compounding & smart hedging",
+          "priceMonthly": 29,
+          "priceAnnual": 23,
+          "isPopular": true,
+          "badge": "Most Popular",
+          "features": [
+            "Unlimited monthly transaction volume",
+            "Algorithmic staking & daily yield",
+            "High-throughput WebSocket feed",
+            "Hardware 2FA & cold-storage insurance",
+            "Priority 24/7 technical desk"
+          ],
+          "ctaText": "Start 14-Day Trial",
+          "ctaUrl": "#"
+        },
+        {
+          "name": "Institutional",
+          "tagline": "Enterprise liquidity and bespoke routing",
+          "priceMonthly": 99,
+          "priceAnnual": 79,
+          "isPopular": false,
+          "badge": "Enterprise",
+          "features": [
+            "Custom OTC liquidity pools",
+            "Multi-sig corporate vault architecture",
+            "Sub-millisecond FIX protocol",
+            "Dedicated compliance manager",
+            "99.99% SLA guarantee"
+          ],
+          "ctaText": "Contact Desk",
+          "ctaUrl": "#"
+        }
+      ]
+    }
+  },
+  "editorScript": "nova-blocks-editor",
+  "editorStyle": "nova-blocks-editor-style",
+  "script": "nova-blocks-frontend",
+  "style": "nova-blocks-frontend-style",
+  "render": "file:./render.php"
+}
